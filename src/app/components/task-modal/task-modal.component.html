@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Your task</h1>
+<div mat-dialog-content>
+  <p>Task title</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.title">
+  </mat-form-field>
+  <p>Task description</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.description">
+  </mat-form-field>
+</div>
+<mat-form-field >
+  <input matInput [(ngModel)]="data.dateEnd" [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker">
+    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClickClose()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
